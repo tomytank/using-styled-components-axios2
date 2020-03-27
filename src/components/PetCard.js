@@ -22,7 +22,7 @@ const DogImage = styled.img`
   flex-shrink: 2;
 `;
 const PetCard = props => {
-  console.log(DogCard);
+  //console.log(DogCard);
   return (
     //<div className="dog-card " key="">
     <DogCard>

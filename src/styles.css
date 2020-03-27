@@ -6,7 +6,7 @@
 .container {
   background: #e62739;
   width: 100%;
-  max-width: 850px;
+  max-width: 1850px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
