@@ -5,13 +5,16 @@ import styled from "styled-components";
 
 const DogButton = styled.button`
   width: 100px;
-  height: 30px;
+  height: ${props => (props.primary ? "100px" : "30px")};
   background: ${props => (props.primary ? "#fff" : "#2a2223")};
-  color: white;
+  color: ${props => (props.primary ? "#2a2223" : " #ffffff")};
   border: 0;
   margin: 5px 10px;
 `;
-
+const InfoButton = styled(DogButton)`
+  background: #17a2ba;
+  color: white;
+`;
 export default function PetGrid() {
   // holds data from API
   // set initial state so petData.map in JSX does not throw
@@ -21,7 +24,7 @@ export default function PetGrid() {
   // manual selection of which breed to display
   // "hound" is our initial breed to display
   const [breed, setBreed] = useState("hound");
-
+  const [primary, setPrimary] = useState("false");
   useEffect(() => {
     //console.log("fire effect");
     // dynamic URL for API based on state
@@ -41,7 +44,7 @@ export default function PetGrid() {
   return (
     <div className="container">
       <DogButton
-        primary={true}
+        primary={false}
         onClick={() => {
           setBreed("mastiff");
         }}
@@ -49,7 +52,12 @@ export default function PetGrid() {
         {" "}
         Mastiff
       </DogButton>
-      <DogButton onClick={() => setBreed("labrador")}>Labrador</DogButton>
+      <DogButton
+        primary={false}
+        onClick={() => (setBreed("labrador"), setPrimary("true"))}
+      >
+        Labrador
+      </DogButton>
       <div className="entry" />
       {/* Initial state of petData must exist as [] otherwise 
       .map will be called on undefined and throw an error */}
