@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+//styled compoonents creating
 const DogCard = styled.div`
   background: #99f3eb;
   color: black;
