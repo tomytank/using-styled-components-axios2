@@ -6,7 +6,7 @@ import styled from "styled-components";
 const DogButton = styled.button`
   width: 100px;
   height: 30px;
-  background: #2a2223;
+  background: ${props => (props.primary ? "#fff" : "#2a2223")};
   color: white;
   border: 0;
   margin: 5px 10px;
@@ -41,6 +41,7 @@ export default function PetGrid() {
   return (
     <div className="container">
       <DogButton
+        primary={true}
         onClick={() => {
           setBreed("mastiff");
         }}
